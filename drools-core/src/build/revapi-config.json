@@ -3,26 +3,14 @@
     "revapi": {
       "java": {
         "filter": {
-          "_comment": [
-            "We don't want to check transitive classes, e.g. from kie-api, since we already check them in their own module."
-          ],
-          "annotated": {
-            "_comment": "Everything with XML annotations is included.",
-            "regex": true,
-            "include": [
-              "@javax\\.xml\\.bind\\.annotation.*",
-              "@com\\.thoughtworks\\.xstream\\.annotations.*"
-            ]
-          },
           "classes": {
             "_comment": [
               "ProtobufMessages should be excluded since it is a generated class and revapi doesn't handle it correctly.",
               "JaxbConfigurationImpl is excluded as well."
             ],
             "regex": true,
-            "exclude": [
-              "org\\.drools\\.core\\.marshalling\\.impl\\.ProtobufMessages.*",
-              "org\\.drools\\.core\\.builder\\.conf\\.impl\\.JaxbConfigurationImpl"
+            "include": [
+              "org\\.drools\\.core\\.command.*"
             ]
           }
         }
