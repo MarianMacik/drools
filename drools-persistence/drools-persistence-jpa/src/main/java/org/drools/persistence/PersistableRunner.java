@@ -516,6 +516,10 @@ public class PersistableRunner implements SingleSessionCommandService {
                 ((JPAWorkItemManager) ksession.getWorkItemManager()).clearWorkItems();
             }
 
+            if (this.service.doRollback) {
+                this.service.jpm.dispose();
+            }
+
         }
 
         public void beforeCompletion() {
