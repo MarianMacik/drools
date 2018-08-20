@@ -20,9 +20,9 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.drools.core.command.impl.NotTransactionalCommand;
 import org.drools.core.command.impl.RegistryContext;
 import org.drools.core.impl.StatefulKnowledgeSessionImpl;
-import org.kie.api.command.ExecutableCommand;
 import org.kie.api.runtime.Context;
 import org.kie.api.runtime.KieSession;
 
@@ -30,7 +30,7 @@ import org.kie.api.runtime.KieSession;
 @XmlAccessorType(XmlAccessType.NONE)
 public class GetIdCommand
     implements
-    ExecutableCommand<Long> {
+        NotTransactionalCommand<Long> {
 
     private static final long serialVersionUID = 510l;
 
